@@ -149,7 +149,7 @@ background: #4e75ff;
 cursor: pointer;
 }
 
-.js-load-more:x hover{
+.js-load-more: hover{
   background: #6c8cff;
 }
 
