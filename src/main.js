@@ -66,6 +66,10 @@ function fetchAndDisplayImages() {
 
       renderImages(data.hits, resultsContainer);
       lightbox.refresh(); // Оновлюємо lightbox після додавання нових зображень
+
+      if (page > 1) {
+        scrollPage();
+      }
     
       if (page * perPage >= totalHits) {
         loadMore.classList.replace('load-more', 'load-more-hidden'); // Ховаємо кнопку
@@ -79,6 +83,7 @@ function fetchAndDisplayImages() {
     })
     .catch(error => {
       loader.style.display = 'none';
+      loadMore.classList.replace('load-more', 'load-more-hidden'); // Ховаємо кнопку
       iziToast.error({
         title: 'Error',
         message: 'Failed to fetch images. Please try again later.',
